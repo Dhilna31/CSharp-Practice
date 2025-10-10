@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketLanding", "RocketLanding\RocketLanding.csproj", "{55A141DF-D064-4978-AABB-6ABCF48E9CDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55A141DF-D064-4978-AABB-6ABCF48E9CDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55A141DF-D064-4978-AABB-6ABCF48E9CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55A141DF-D064-4978-AABB-6ABCF48E9CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55A141DF-D064-4978-AABB-6ABCF48E9CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D93335AB-2573-4706-AF9A-8A250F636321}
+	EndGlobalSection
+EndGlobal
