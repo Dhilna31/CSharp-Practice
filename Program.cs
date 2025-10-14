@@ -1,41 +1,72 @@
-﻿// in strings \ is an "Escape Characters"
-// \n stands for new line"
-// \r-carriage return
+﻿//Advanture Game
 
-using Microsoft.VisualBasic;
+
 using System.Numerics;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-string rocket = "    |\r\n    |\r\n   / \\\r\n  / _ \\\r\n  |.o '.|\r\n  |'._.'|\r\n  |    |\r\n ,'|  | |'.\r\n/  |  | |  \\\r\n|,-'--|--'-.|";
-//Declares a string variable named rocket which contains an ASCII art of a rocket.
-// \r\n is used to add a new line, making the art display correctly in multiple lines.
+Console.WriteLine("Welcome to the Adventure Game!");
+Console.WriteLine("Enter your Character's name: ");
+string playerName=Console.ReadLine();
+Console.WriteLine("Choose your Character type Warrior,Wizard,Archer");
+string characterType = Console.ReadLine();  
 
-for(int counter=10; counter>=0;counter--)
-    //Starts a for loop that counts down from 10 to 0.
-    //This will act as the launch countdown.
-    {
+Console.WriteLine($"You, { playerName } the { characterType } find yourself at the edge of a dark forest");
+Console.WriteLine("Do you enter the forest or camp outside? (Enter/Camp)");
 
-    Console.Clear();
-    //Clears the console screen on every loop iteration.
-    //This creates an animation effect when the rocket moves upward.
+string choice1 =Console.ReadLine();
 
-    Console.WriteLine("Counter is " + counter);
-    //Displays the current countdown number.
+if(choice1.ToLower() =="enter")
+    //Converts input to lowercase to make comparison case-insensitive.
+   // If the player chooses "enter", they proceed into the forest; otherwise, they set up camp.
+{
+    Console.WriteLine("You bravely enter the forest");
 
-    Console.WriteLine(rocket);
-    //Prints the rocket ASCII art to the screen.
-
-    rocket = "\r\n" + rocket;
-    //Adds a blank line above the rocket in each loop iteration.
-    //This visually moves the rocket upward as the countdown progresses.
-
-    Thread.Sleep(1000);
-    //Pauses the program for 1000 milliseconds (1 second).
-    //Ensures each frame of the animation is visible.
 }
-Console.WriteLine("The rocket has landed");
-//After the loop finishes, this message is displayed.
-//Small typo here: Change "as landed" to "has landed" for correct grammar.
+else
+{
+    Console.WriteLine("you decide to camp out and wait for daylight.");
+}
+
+bool gameContinues = true;
+//A boolean flag that controls the main game loop.
+
+while (gameContinues)
+//Starts a loop that runs as long as the game is active.
+{
+    Console.WriteLine("You come to a fork in the road.Go left or right?");
+    string direction = Console.ReadLine();
+    if(direction.ToLower() == "Left")
+    {
+        Console.WriteLine("You find a treasure chest!");
+        gameContinues = false;
+    }
+    else
+    {
+        Console.WriteLine("You encounter a wild beast!");
+        Console.WriteLine("Fight or flee? (fight/flee)");
+        string fightChoice = Console.ReadLine();
+        if(fightChoice.ToLower() == "fight")
+        {
+            Random random = new Random();
+            int luck = random.Next(1, 11);
+            if(luck > 5)
+            {
+                Console.WriteLine("you beat the wild beast!");
+                if(luck > 8)
+                {
+                    Console.WriteLine("the wild beast dropped a treasure!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("the beast attacked you where you didn't expect it1");
+                Console.WriteLine("it rammed it's tusks into your chest and you bleed out!");
+                gameContinues = false;
+            }
+        }
+    }
+}
+
+Console.WriteLine("game over!");
+Console.WriteLine("thank you for playing the game!");
 
 Console.ReadKey();
-//Waits for the user to press any key before closing the program.
