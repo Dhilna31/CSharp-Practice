@@ -1,34 +1,41 @@
-﻿//the while loop
+﻿// in strings \ is an "Escape Characters"
+// \n stands for new line"
+// \r-carriage return
 
-Random random = new Random();
+using Microsoft.VisualBasic;
+using System.Numerics;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
-int secretNumber = random.Next(1,101);
-//Generates a random number between 1 and 100 (inclusive of 1, exclusive of 101) and
-//stores it in secretNumber.
-int userGuess = 0;
-//the player's guess.
-int counter = 0;
-//how many attempts the user makes.
+string rocket = "    |\r\n    |\r\n   / \\\r\n  / _ \\\r\n  |.o '.|\r\n  |'._.'|\r\n  |    |\r\n ,'|  | |'.\r\n/  |  | |  \\\r\n|,-'--|--'-.|";
+//Declares a string variable named rocket which contains an ASCII art of a rocket.
+// \r\n is used to add a new line, making the art display correctly in multiple lines.
 
-Console.WriteLine("Guess the number i'm thinking of between 1 and 100");
-
-while (userGuess != secretNumber)
-//Starts a loop that will continue until the user guesses the correct number.
-{
-    counter++;
-    //Increases the attempt counter by one every time the user makes a guess.
-    Console.WriteLine("Enter your Guess:");
-    userGuess = int.Parse(Console.ReadLine());
-    if(userGuess < secretNumber)
+for(int counter=10; counter>=0;counter--)
+    //Starts a for loop that counts down from 10 to 0.
+    //This will act as the launch countdown.
     {
-        Console.WriteLine("Too low! Try again.");
-    } else if(userGuess > secretNumber)
-        {
-        Console.WriteLine("Too high! Try again");
-    }
-    else
-    {
-        Console.WriteLine("Congratualtions! you guessed the number right! It took you" + counter + "tries!");
-    }
+
+    Console.Clear();
+    //Clears the console screen on every loop iteration.
+    //This creates an animation effect when the rocket moves upward.
+
+    Console.WriteLine("Counter is " + counter);
+    //Displays the current countdown number.
+
+    Console.WriteLine(rocket);
+    //Prints the rocket ASCII art to the screen.
+
+    rocket = "\r\n" + rocket;
+    //Adds a blank line above the rocket in each loop iteration.
+    //This visually moves the rocket upward as the countdown progresses.
+
+    Thread.Sleep(1000);
+    //Pauses the program for 1000 milliseconds (1 second).
+    //Ensures each frame of the animation is visible.
 }
+Console.WriteLine("The rocket has landed");
+//After the loop finishes, this message is displayed.
+//Small typo here: Change "as landed" to "has landed" for correct grammar.
+
 Console.ReadKey();
+//Waits for the user to press any key before closing the program.
